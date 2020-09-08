@@ -1,0 +1,164 @@
+@font-face {
+  font-family: BogleRegular;
+  src: url("../fonts/Bogle-Regular.otf");
+}
+
+@font-face {
+  font-family: BogleRegularItalic;
+  src: url("../fonts/Bogle-RegularItalic.otf");
+}
+
+@font-face {
+  font-family: BogleBold;
+  src: url("../fonts/Bogle-Bold.otf");
+}
+
+@font-face {
+  font-family: BogleBoldItalic;
+  src: url("../fonts/Bogle-BoldItalic.otf");
+}
+
+
+.wmblue {
+  color: #0071ce;
+}
+
+.dpblue {
+  color: #0f1c2c;
+}
+
+.wmltblue {
+  color: #78b9e7;
+}
+
+.wmorange {
+  color: #f47521;
+}
+
+.wmyellow {
+  color: #ffc220;
+}
+
+.wmgreen {
+  color: #76c043;
+}
+
+.wmred {
+  color: #ee3b2a;
+}
+.wmpink {
+  color: #eb148d;
+}
+
+
+/* Image shadow
+------------------------------------------------------------*/
+
+.polaroid {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.page-title:after {
+    content: ""; /* This is necessary for the pseudo element to work. */
+    display: block; /* This will put the pseudo element on its own line. */
+    margin: 0 auto; /* This will center the border. */
+    width: 50%; /* Change this to whatever width you want. */
+    padding-top: 10px; /* This creates some space between the element and the border. */
+    border-bottom: 3px solid #f47521; /* This creates the border. Replace black with whatever color you want. */
+}
+
+
+.title {
+  font-size: 75px;
+  font-family: BogleBold, sans-serif;
+}
+
+.subtitle {
+  font-size: 45px;
+  font-family: BogleBold, sans-serif;
+}
+
+.smalltitle {
+  font-size: 25px;
+  font-family: BogleBold, sans-serif;
+}
+
+@media only screen and (max-width: 600px) {
+    .title {
+        font-size: 45px;
+        font-family: BogleBold, sans-serif;
+    }
+}
+
+.hero-button {
+  border-color: #eb148d;
+  border-width: 2px;
+  background-color: #eb148d;
+  display: inline-block;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 3px;
+  margin: 35px 0 0;
+  border-radius: 25px;
+  padding: 10px 30px;
+  color: white;
+}
+
+.hero-button:hover {
+  background-color: #76c043;
+  border-color: #76c043;
+}
+
+.hero-button-outline {
+  border-color: #eb148d;
+  border-width: 2px;
+  background-color: transparent;
+  display: inline-block;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 3px;
+  margin: 35px 0 0;
+  border-radius: 25px;
+  padding: 10px 30px;
+  color: #eb148d;
+}
+
+.hero-button-outline:hover {
+    background-color: #eb148d;
+    border-color: #eb148d;
+    color: white;
+}
+
+.mybtn-pink-outline {
+    border: 2px #eb148d solid;
+    border-radius: 35px;
+    margin: 15px 0 0;
+    padding: 15px 65px;
+    /*box-shadow: 0 2px 10px 0 #eb148d, 0 6px 20px 0 rgba(0, 0, 0, 0.19);*/
+    background-color: transparent;
+    color: #eb148d;
+
+}
+
+.mybtn-pink-outline:hover {
+    background-color: #eb148d;
+    border-color: #eb148d;
+    color: white;
+}
+
+.hero-thick {
+    border: 2px #eb148d solid;
+    border-radius: 35px;
+    margin: 15px 0 0;
+    padding: 15px 65px;
+    /*box-shadow: 0 2px 10px 0 #eb148d, 0 6px 20px 0 rgba(0, 0, 0, 0.19);*/
+    background-color: #eb148d;
+    color: white;
+
+}
+
+.hero-thick:hover {
+    background-color: transparent;
+    border-color: #eb148d;
+    color: #eb148d;
+}
