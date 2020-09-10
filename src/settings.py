@@ -47,7 +47,15 @@ TWILIO_ACCOUNT_SID = get_secret("TWILIO_ACCOUNT_SID")
 TWILIO_AUTH_TOKEN = get_secret("TWILIO_AUTH_TOKEN")
 TWILIO_NUMBER = get_secret("TWILIO_NUMBER")
 
+CHECK_IN_WORDS = ['here']
+OPT_IN_WORDS = ['start', 'subscribe', 'unstop', 'enroll']
+OPT_OUT_WORDS = ['end', 'quit', 'stop', 'stopall', 'unsubscribe']
+HELP_WORDS = ['help', 'info']
+CANCEL_WORDS = ['cancel', 'cancel checkin', 'cancel check-in']
+
+
 CHECKIN_APP_NAME = 'Tech Bar Checkin'
+
 # Application definition
 INSTALLED_APPS = [
     'django.contrib.admin',

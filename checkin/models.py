@@ -44,7 +44,10 @@ class TextMessage(models.Model):
         ('check in page', 'Check In Page'),
         ('ready notification', 'Ready Notification'),
         ('first contact', 'First Contact SMS'),
-        ('invalid response', 'Invalid Response')
+        ('invalid response', 'Invalid Response'),
+        ('already_checked_in_response', 'Already Checked-in Response'),
+        ('cancellation_response', 'Cancellation Response'),
+        ('invalid_cancellation_request', 'Invalid Cancellation Request')
     ]
 
     subject = models.CharField(max_length=120, choices=SUBJECT_CHOICES, blank=True, null=True)
@@ -56,30 +59,30 @@ class TextMessage(models.Model):
     objects = TextManager()
 
 
-# gets a text message to send
-class WordManager(models.Manager):
-    def word_list(self, category):
-        word_list = list(Word.objects.filter(category=category).values_list(Lower('word'), flat=True))
-        return word_list
-
-
-# come back later and save the word field as lowercase text
-class Word(models.Model):
-    WORD_CATEGORIES = [
-        ('check_in_words', 'Check In Words'),
-        ('opt_in_words', 'Opt In Words'),
-        ('opt_out_words', 'Opt Out Words'),
-        ('help_words', 'Help Words'),
-        ('cancel_words', 'Cancel Words')
-    ]
-
-    category = models.CharField(max_length=120, choices=WORD_CATEGORIES, blank=True, null=True)
-    word = models.CharField(max_length=20, blank=True, null=True)
-
-    def __str__(self):
-        return self.category
-
-    objects = WordManager()
-
+# # gets a text message to send
+# class WordManager(models.Manager):
+#     def word_list(self, category):
+#         word_list = list(Word.objects.filter(category=category).values_list(Lower('word'), flat=True))
+#         return word_list
+#
+#
+# # come back later and save the word field as lowercase text
+# class Word(models.Model):
+#     WORD_CATEGORIES = [
+#         ('check_in_words', 'Check In Words'),
+#         ('opt_in_words', 'Opt In Words'),
+#         ('opt_out_words', 'Opt Out Words'),
+#         ('help_words', 'Help Words'),
+#         ('cancel_words', 'Cancel Words')
+#     ]
+#
+#     category = models.CharField(max_length=120, choices=WORD_CATEGORIES, blank=True, null=True)
+#     word = models.CharField(max_length=20, blank=True, null=True)
+#
+#     def __str__(self):
+#         return self.category
+#
+#     objects = WordManager()
+#
 
 

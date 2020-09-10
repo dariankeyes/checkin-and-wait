@@ -1,5 +1,5 @@
 from django.contrib import admin
-from . models import Checkin, Reason, TextMessage, Word
+from . models import Checkin, Reason, TextMessage
 
 
 class CheckinAdmin(admin.ModelAdmin):
@@ -9,4 +9,3 @@ class CheckinAdmin(admin.ModelAdmin):
 admin.site.register(Checkin, CheckinAdmin)
 admin.site.register(Reason)
 admin.site.register(TextMessage)
-admin.site.register(Word)
