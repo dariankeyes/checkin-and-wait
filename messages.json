@@ -1,0 +1,39 @@
+
+[
+    {
+        "id": 1,
+        "message": "Thank you for checking in! Please wait in your car. You'll receive a text as soon as we can see you.\r\n\r\nYou must complete your Health Screening before entering the building. This is required and being tracked.\r\n\r\nhttps://healthscreening.walmart.com\r\n\r\nText CANCEL to cancel the checkin. Text STOP to unsubscribe. Text Help for more information.\r\nUnsubscribing before you've been helped, will cancel your checkin.",
+        "subject": "first contact"
+    },
+    {
+        "id": 2,
+        "message": "By submitting the form below, you agree to receive a text alert once we can safely allow you into the building. Msg&Data Rates May Apply.",
+        "subject": "check in page"
+    },
+    {
+        "id": 3,
+        "message": "We are ready to see you.",
+        "subject": "ready notification"
+    },
+    {
+        "id": 4,
+        "Invalid response! Valid responses are: HERE to checkin, CANCEL to cancel checkin, STOP to unsubscribe, & HELP for more info",
+        "subject": "invalid response"
+    },
+    {
+        "id": 5,
+        "message": "You're already checked in. Please wait and we'll notify you as soon as you can come into the building.",
+        "subject": "already_checked_in_response"
+    },
+    {
+        "id": "7",
+        "message": "Your checkin has been canceled.",
+        "subject": "cancellation_response"
+    },
+    {
+        "id": 8,
+        "message": "You have no open check-in. Please text HERE if you are needing to check-in.",
+        "subject": "invalid_cancellation_request"
+    }
+
+]

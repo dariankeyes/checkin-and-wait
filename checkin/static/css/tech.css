@@ -17,7 +17,23 @@
   font-family: BogleBoldItalic;
   src: url("../fonts/Bogle-BoldItalic.otf");
 }
+html, body {
+  height: 100%;
+}
+body {
+  display: flex;
+  flex-direction: column;
+}
 
+.content {
+  flex: 1 0 auto;
+}
+
+.footer {
+  flex-shrink: 0;
+  color: white;
+  background-color: #0f1c2c;
+}
 
 .wmblue {
   color: #0071ce;

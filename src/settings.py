@@ -46,6 +46,7 @@ ALLOWED_HOSTS = get_secret("ALLOWED_HOSTS")
 TWILIO_ACCOUNT_SID = get_secret("TWILIO_ACCOUNT_SID")
 TWILIO_AUTH_TOKEN = get_secret("TWILIO_AUTH_TOKEN")
 TWILIO_NUMBER = get_secret("TWILIO_NUMBER")
+TWILIO_CALLBACK_URL = get_secret("TWILIO_CALLBACK_URL")
 
 CHECK_IN_WORDS = ['here']
 OPT_IN_WORDS = ['start', 'subscribe', 'unstop', 'enroll']

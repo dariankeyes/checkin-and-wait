@@ -4,16 +4,14 @@ from django.views.decorators.csrf import csrf_exempt
 from django.contrib.auth.decorators import login_required
 from django.views.decorators.http import require_POST
 from django.http import JsonResponse, HttpResponse
-from django.core import serializers
 from django.utils import timezone
 
 
-from .forms import CheckinForm, MessageForm
-from .models import Checkin, TextMessage
+from .forms import CheckinForm
+from .models import Checkin, TextMessage, TwilioMessages
 from .supporting_scripts.sms import send_sms
 from .supporting_scripts.process_received_sms import process_received_sms
 
-import json
 import logging
 
 logger = logging.getLogger(__name__)
@@ -62,6 +60,12 @@ def dashboard(request):
     template = 'dashboard/dashboard.html'
     waiting = Checkin.objects.all()
     return render(request, template, {'app_name': app_name, 'title': title, 'waiting': waiting})
+
+
+def terms(request):
+    title = 'Terms of Use'
+    template = 'terms.html'
+    return render(request, template, {'app_name': app_name, 'title': title})
 
 
 @login_required
@@ -131,9 +135,33 @@ def cancel_checkin(request):
 @csrf_exempt
 @require_POST
 def twilio_webhook(request):
-    # print('here')
     json_data = request.POST
+    # print(json.dumps(json_data, indent=4, sort_keys=True))
     received_sms = json_data['Body']
     from_number = json_data['From']
+
+    # creates database record of incoming message
+    twilio_message = TwilioMessages(incoming_message_sid=json_data['MessageSid'], body=received_sms,
+                                    phone_number=from_number, status=json_data['SmsStatus'],
+                                    type='incoming_message')
+    twilio_message.save()
+
     process_received_sms(from_number, received_sms)
+    return HttpResponse(status=200)
+
+
+@csrf_exempt
+@require_POST
+def twilio_status(request):
+    json_data = request.POST
+    # print(json.dumps(json_data, indent=4, sort_keys=True))
+
+    sid = json_data['MessageSid']
+    message_status = json_data['MessageStatus']
+    to_number = json_data['To']
+
+    twilio_message = get_object_or_404(TwilioMessages, sent_message_sid=sid)
+    twilio_message.status = message_status
+    twilio_message.save()
+
     return HttpResponse(status=200)

@@ -59,6 +59,24 @@ class TextMessage(models.Model):
     objects = TextManager()
 
 
+class TwilioMessages(models.Model):
+    TYPE_CHOICES = [
+        ('incoming_message', 'Incoming'),
+        ('outgoing_message', 'Outgoing')
+    ]
+    incoming_message_sid = models.CharField(max_length=50, blank=True, null=True)
+    sent_message_sid = models.CharField(max_length=50, blank=True, null=True)
+    body = models.TextField(blank=True, null=True)
+    phone_number = models.CharField(max_length=50, blank=False, null=False)
+    status = models.CharField(max_length=50, blank=False, null=False)
+    type = models.CharField(max_length=120, choices=TYPE_CHOICES, blank=True, null=True)
+
+    def __str__(self):
+        return self.phone_number
+
+
+
+
 # # gets a text message to send
 # class WordManager(models.Manager):
 #     def word_list(self, category):
